@@ -95,8 +95,44 @@ function getSpotify(songName) {
     )
 };
 
-
-
 /* ***************************************CONCERT   FUNCTION**********************************************/
+function getConcert(bandName) {
+    var queryUrl = "https://rest.bandsintown.com/artists/" + bandName + "/events?app_id=trilogy";
+
+    request(queryUrl, function(error, response, body) {
+        if (!error) {
+            var concertData = JSON.parse(body);
+
+            var concertDT = concertData[0].datetime
+            var momentDT = moment().format('L');
+
+
+            // console.log(concertData);
+            // for (i = 0; i < movieData.length && i < 5; i++) {
+            console.log("===============================");
+            // * Name of the venue
+            console.log("Venue Name : " + concertData[0].venue.name +
+                // * Venue location
+                "\nVenue Location: " + concertData[0].venue.city + "," + concertData[0].venue.country +
+                //  * Date of the Event (use moment to format this as "MM/DD/YYYY")
+                "\nDate of the Event: " + momentDT +
+                "\n===============================");
+
+        };
+    });
+}
 
 /* ***************************************DO WHAT IT SAYS FUNCTION*****************************************/
+function doIt() {
+    fs.readFile('random.txt', 'utf8', function(err, data) {
+        data = data.split(",");
+        userInput = data[0];
+        songTitle = data[1];
+
+        if (userInput === "spotify-this-song" && songTitle === "undefined") {
+            getSpotify("Thriller")
+        } else if (userInput === "spotify-this-song") {
+            getSpotify(songTitle);
+        }
+    });
+};
