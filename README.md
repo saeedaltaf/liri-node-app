@@ -8,19 +8,19 @@ What Each Command Should Do
 1. node liri.js movie-this + "movie name here"
 
    This will output the following information to your terminal/bash window:
-   ![](images/movie-this.PNG)
+   <img src="images/movie-this.png" width=800>
 
 2. node liri.js spotify-this-song + "song name here"
 
    This will output the following information to your terminal/bash window:
-   ![](images/spotify-this.png)
+   <img src="images/spotify-this.png" width=800>
 
 3. node liri.js concert-this + "band name here"
 
    This will output the following information to your terminal/bash window:
-   ![](images/concert.png)
+   <img src="images/concert.png" width=800>
 
 4) node liri.js do-what-it-says
 
    Using the fs Node package, LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
-   ![](images/do-what.png)
+   <img src="images/do-what.png" width=800>
